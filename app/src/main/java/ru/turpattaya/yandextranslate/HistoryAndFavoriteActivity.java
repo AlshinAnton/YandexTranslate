@@ -41,15 +41,13 @@ public class HistoryAndFavoriteActivity extends AppCompatActivity implements His
     private ImageView footerTranslateImage, footerFavoriteImage, footerSettingsImage;
     boolean isFavorite = false;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_history_and_favorite);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_history);
+        Toolbar toolbar = findViewById(R.id.toolbar_history);
         setSupportActionBar(toolbar);
         {
             ActionBar bar = getSupportActionBar();
@@ -62,9 +60,9 @@ public class HistoryAndFavoriteActivity extends AppCompatActivity implements His
 
         }
 
-        footerTranslateImage = (ImageView) findViewById(R.id.footer_image_translate);
-        footerFavoriteImage = (ImageView) findViewById(R.id.footer_image_favorite);
-        footerSettingsImage = (ImageView) findViewById(R.id.footer_image_settings);
+        footerTranslateImage = findViewById(R.id.footer_image_translate);
+        footerFavoriteImage = findViewById(R.id.footer_image_favorite);
+        footerSettingsImage = findViewById(R.id.footer_image_settings);
 
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -94,15 +92,13 @@ public class HistoryAndFavoriteActivity extends AppCompatActivity implements His
                     startActivity(intent);
                 }
             });
-        }
+        }  // дописать else , хотя поменяв версию на 21 уже не актуально
 
-        tabLayout = (TabLayout) findViewById (R.id.tabs);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tabLayout = findViewById (R.id.tabs);
+        viewPager = findViewById(R.id.viewPager);
 
         setupViewPager(viewPager);// будет добавлять объекты в адаптер
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 
     ViewPager.OnPageChangeListener myOnPageChangeListener =
@@ -125,14 +121,12 @@ public class HistoryAndFavoriteActivity extends AppCompatActivity implements His
 
                 }};
 
-
-
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HistoryFragment(), "История");
         adapter.addFragment(new FavoriteFragment(), "Избранное");
         viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(myOnPageChangeListener);
+        viewPager.addOnPageChangeListener(myOnPageChangeListener);
     }
 
     @Override
@@ -150,7 +144,7 @@ public class HistoryAndFavoriteActivity extends AppCompatActivity implements His
          final List<Fragment> fragmentList = new ArrayList<>(); //контейнер для фрагментов
         private  final List<String> titleList = new ArrayList<>(); // контейнер для заголовков Tabs
 
-        public ViewPagerAdapter(FragmentManager fm) {
+        ViewPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

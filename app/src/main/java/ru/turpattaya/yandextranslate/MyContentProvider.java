@@ -18,11 +18,7 @@ import ru.turpattaya.yandextranslate.DataBase.MySQLiteHelper;
 
 public class MyContentProvider extends ContentProvider {
 
-/*
-    public static final String CONTENT_AUTHORITY = "com.nocompany.articlesflarmentpuresqlite.articles";
-*/
     public static final String CONTENT_AUTHORITY = "ru.turpattaya.yandextranslate.history";
-
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY + "/history");
     //чтобы определить запрос к  таблице или к конкретной строке создадим константы
@@ -149,10 +145,4 @@ public class MyContentProvider extends ContentProvider {
         }
         return updateCount;
     }
-
-/*    @NonNull
-    @Override
-    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> operations) throws OperationApplicationException {
-        return super.applyBatch(operations);
-    }*/
 }

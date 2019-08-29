@@ -15,9 +15,9 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        footerTranslateImage = (ImageView) findViewById(R.id.footer_image_translate);
-        footerFavoriteImage = (ImageView) findViewById(R.id.footer_image_favorite);
-        footerSettingsImage = (ImageView) findViewById(R.id.footer_image_settings);
+        footerTranslateImage = findViewById(R.id.footer_image_translate);
+        footerFavoriteImage = findViewById(R.id.footer_image_favorite);
+        footerSettingsImage = findViewById(R.id.footer_image_settings);
 
         footerTranslateImage.setOnClickListener(new View.OnClickListener() {
             @Override

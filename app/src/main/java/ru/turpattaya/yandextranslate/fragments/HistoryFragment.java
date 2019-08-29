@@ -20,16 +20,11 @@ import ru.turpattaya.yandextranslate.DataBase.MySQLiteHelper;
 import ru.turpattaya.yandextranslate.R;
 
 public class HistoryFragment extends Fragment {
+    public HistoryFragment() { }
 
     private HistoryFragmentAddFavoriteHost host;
     private ListView listHistory;
     private HistoryAdapter adapter;
-
-
-    public HistoryFragment() {
-    }
-
-
 
     // Активность, на которой будет размещен фрагмент, должна имплментить
     // этот интерфейс, чтобы фрагмент мог передавать ей данные
@@ -43,27 +38,34 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rowView = inflater.inflate(R.layout.fragment_history, container, false);
         setHasOptionsMenu(true);
-        listHistory = (ListView) rowView.findViewById(R.id.list_history);
-
+        listHistory = rowView.findViewById(R.id.list_history);
         populateHistoryFragment();
-
         return rowView;
     }
-
-
 
     public void refreshView() {
         MySQLiteHelper helper = new MySQLiteHelper(getContext());
         Cursor cursor = helper.getReadableDatabase().query(
-                HistoryTable.TABLE_HISTORY, null, null, null, null, null, null );
-
+                HistoryTable.TABLE_HISTORY,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null );
        adapter.changeCursor(cursor);
     }
 
     private void populateHistoryFragment() {
         MySQLiteHelper helper = new MySQLiteHelper(getContext());
         Cursor cursor = helper.getReadableDatabase().query(
-                HistoryTable.TABLE_HISTORY, null, null, null, null, null, null );
+                HistoryTable.TABLE_HISTORY,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null );
         adapter = new HistoryAdapter(getContext(), cursor);
         listHistory.setAdapter(adapter);
     }
@@ -157,20 +159,3 @@ public class HistoryFragment extends Fragment {
         Log.d("happy", "HistoryFragment onDetach");
     }
 }
-
- /* // Метод для получения курсора
-    private Cursor getHistoryCursor() {
-
-        ContentResolver resolver = getContext().getContentResolver();
-        return resolver.query(
-                MyContentProvider.CONTENT_URI,
-                null,
-                null,
-                null,
-                null);
-    }
-
-    private void updateCursorInAdapter() {
-        Cursor cursor = getHistoryCursor();
-        adapter.swapCursor(cursor);
-    }*/

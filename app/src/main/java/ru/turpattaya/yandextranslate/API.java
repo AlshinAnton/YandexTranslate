@@ -15,8 +15,6 @@ import static ru.turpattaya.yandextranslate.ApiKey.KEY_DICTIONARY_YANDEX;
 
 public class API {
 
-    
-
     void translate(String textIn, String translateDirection, Callback<JsonTranslate> callback) {
 
         /* HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -40,7 +38,6 @@ public class API {
         Call<JsonTranslate> call = service.getTranslatedText(KEY_API_YANDEX, textIn, translateDirection);
         call.enqueue(callback);
     }
-
 
     /*https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=...&lang=en-ru&text=time*/
     void dictionary(String translateDirection, String text, Callback<JsonDictionaryResult> callback) {

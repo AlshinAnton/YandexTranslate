@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 public class ViewHolderItem {
 
-        public ImageView imageFavoriteIcon;
-        public TextView textInHistory;
-        public TextView textOutHistory;
-        public TextView textTranslationDirectionHistory;
+        ImageView imageFavoriteIcon;
+        TextView textInHistory;
+        TextView textOutHistory;
+        TextView textTranslationDirectionHistory;
 
-        public boolean isFavorite;
+        boolean isFavorite;
 
         public int id ;
 

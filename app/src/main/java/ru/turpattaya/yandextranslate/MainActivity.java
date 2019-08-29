@@ -67,27 +67,27 @@ public class MainActivity extends AppCompatActivity implements VocalizerListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        Toolbar toolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setHomeButtonEnabled(false);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-        linkYandex = (TextView) findViewById(R.id.link_yandex);
+        linkYandex = findViewById(R.id.link_yandex);
 
 
-        etIn = (EditText) findViewById(R.id.main_edit_text_in);
-        tvOut = (TextView) findViewById(R.id.main_text_out);
-        inLanguageToolbar = (TextView) findViewById(R.id.main_toolbar_translate_from);
-        outLanguageToolbar = (TextView) findViewById(R.id.main_toolbar_translate_to);
-        ImageView translateDirectionToolbar = (ImageView) findViewById(R.id.main_toolbar_translate_direction);
-        footerTranslateImage = (ImageView) findViewById(R.id.footer_image_translate);
-        footerFavoriteImage = (ImageView) findViewById(R.id.footer_image_favorite);
-        footerSettingsImage = (ImageView) findViewById(R.id.footer_image_settings);
-        dictTranslateResult = (TextView) findViewById(R.id.main_text_dict_translate_result);
-        dictPosResult = (TextView) findViewById(R.id.main_text_dict_pos_result);
-        dictTranscriptionResult = (TextView) findViewById(R.id.main_text_dict_transcription);
+        etIn = findViewById(R.id.main_edit_text_in);
+        tvOut = findViewById(R.id.main_text_out);
+        inLanguageToolbar = findViewById(R.id.main_toolbar_translate_from);
+        outLanguageToolbar = findViewById(R.id.main_toolbar_translate_to);
+        ImageView translateDirectionToolbar = findViewById(R.id.main_toolbar_translate_direction);
+        footerTranslateImage = findViewById(R.id.footer_image_translate);
+        footerFavoriteImage = findViewById(R.id.footer_image_favorite);
+        footerSettingsImage = findViewById(R.id.footer_image_settings);
+        dictTranslateResult = findViewById(R.id.main_text_dict_translate_result);
+        dictPosResult = findViewById(R.id.main_text_dict_pos_result);
+        dictTranscriptionResult = findViewById(R.id.main_text_dict_transcription);
 
         checkPreferences();
 
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements VocalizerListener
             }
         });
 
-        imageClearEtMain = (ImageView) findViewById(R.id.main_image_clear);
+        imageClearEtMain = findViewById(R.id.main_image_clear);
         imageClearEtMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,9 +175,9 @@ public class MainActivity extends AppCompatActivity implements VocalizerListener
 
         SpeechKit.getInstance().configure(getApplicationContext(), KEY_SPEECHKIT_YANDEX);
 
-        imageMicrophoneMain = (ImageView) findViewById(R.id.main_microphone);
-        imageReproductionTextInMain = (ImageView) findViewById(R.id.main_reproduction_text_in);
-        imageReproductionTextOutMain = (ImageView) findViewById(R.id.main_reproduction_text_out);
+        imageMicrophoneMain = findViewById(R.id.main_microphone);
+        imageReproductionTextInMain = findViewById(R.id.main_reproduction_text_in);
+        imageReproductionTextOutMain = findViewById(R.id.main_reproduction_text_out);
 
         imageMicrophoneMain.setOnClickListener(new View.OnClickListener() {
             @Override
